@@ -12,6 +12,7 @@ import com.appjangle.opsunit.Job;
 import com.appjangle.opsunit.JobManager;
 import com.appjangle.opsunit.Response;
 import com.appjangle.opsunit.jre.OpsUnitJre;
+import com.appjangle.opsunit.jre.templates.AlwaysPass;
 import com.appjangle.opsunit.listener.DefaultJobListener;
 
 public class TestJobsWithoutFailure {
@@ -27,7 +28,7 @@ public class TestJobsWithoutFailure {
 			public List<Class<?>> getTests() {
 				final LinkedList<Class<?>> tests = new LinkedList<Class<?>>();
 
-				tests.add(ExampleTest.class);
+				tests.add(AlwaysPass.class);
 
 				return tests;
 			}
@@ -75,19 +76,5 @@ public class TestJobsWithoutFailure {
 		Thread.sleep(1000);
 
 		Assert.assertTrue(testsDone.size() > 3);
-	}
-
-	public static class ExampleTest {
-
-		@Test
-		public void test_all_okay() {
-			Assert.assertTrue(true);
-		}
-
-		@Test
-		public void test_still_okay() {
-			Assert.assertTrue(true);
-		}
-
 	}
 }
