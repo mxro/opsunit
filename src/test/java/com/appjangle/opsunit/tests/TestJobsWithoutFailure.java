@@ -16,20 +16,6 @@ import com.appjangle.opsunit.listener.DefaultJobListener;
 
 public class TestJobsWithoutFailure {
 
-	public static class ExampleTest {
-
-		@Test
-		public void test_all_okay() {
-			Assert.assertTrue(true);
-		}
-
-		@Test
-		public void test_still_okay() {
-			Assert.assertTrue(true);
-		}
-
-	}
-
 	@Test
 	public void test_run_jobs_without_failures() throws InterruptedException {
 
@@ -40,7 +26,9 @@ public class TestJobsWithoutFailure {
 			@Override
 			public List<Class<?>> getTests() {
 				final LinkedList<Class<?>> tests = new LinkedList<Class<?>>();
+
 				tests.add(ExampleTest.class);
+
 				return tests;
 			}
 
@@ -87,5 +75,19 @@ public class TestJobsWithoutFailure {
 		Thread.sleep(1000);
 
 		Assert.assertTrue(testsDone.size() > 3);
+	}
+
+	public static class ExampleTest {
+
+		@Test
+		public void test_all_okay() {
+			Assert.assertTrue(true);
+		}
+
+		@Test
+		public void test_still_okay() {
+			Assert.assertTrue(true);
+		}
+
 	}
 }
