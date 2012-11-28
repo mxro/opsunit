@@ -1,19 +1,81 @@
 package com.appjangle.opsunit.tests;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.appjangle.opsunit.Job;
+import com.appjangle.opsunit.JobManager;
+import com.appjangle.opsunit.Response;
+import com.appjangle.opsunit.jre.OpsUnitJre;
+import com.appjangle.opsunit.listener.DefaultJobListener;
 
 public class TestJobsWithoutFailure {
 
+	public static class ExampleTest {
+
+		@Test
+		public void test_all_okay() {
+			Assert.assertTrue(true);
+		}
+
+		@Test
+		public void test_still_okay() {
+			Assert.assertTrue(true);
+		}
+
+	}
+
 	@Test
-	public void test_run_jobs_without_failures() {
-		
-		LinkedList<Job> jobs = new LinkedList<Job>();
-		
-		jobs.
-		
+	public void test_run_jobs_without_failures() throws InterruptedException {
+
+		final LinkedList<Job> jobs = new LinkedList<Job>();
+
+		jobs.add(new Job() {
+
+			@Override
+			public List<Class<?>> getTests() {
+				final LinkedList<Class<?>> tests = new LinkedList<Class<?>>();
+				tests.add(ExampleTest.class);
+				return tests;
+			}
+
+			@Override
+			public List<Response> getResponses() {
+				return new ArrayList<Response>(0);
+			}
+
+			@Override
+			public String getName() {
+				return "test job";
+			}
+
+			@Override
+			public int getFrequency() {
+				return 50;
+			}
+		});
+
+		final List<Class<?>> testsDone = Collections
+				.synchronizedList(new ArrayList<Class<?>>(0));
+		final JobManager manager = OpsUnitJre.createManager(jobs,
+				new DefaultJobListener() {
+
+					@Override
+					public void onStartTest(final Job j, final Class<?> test) {
+						testsDone.add(test);
+					}
+
+				});
+
+		manager.start();
+
+		Thread.sleep(300);
+
+		Assert.assertTrue(testsDone.size() > 3);
 	}
 }
