@@ -3,7 +3,7 @@
 <project>
 	<groupId>com.appjangle.opsunit</groupId>
 	<artifactId>opsunit</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<description>Framework to utilize JUnit tests to support operations.
 	</description>
 
@@ -20,7 +20,8 @@
 		<module.gwtVersion>2.2.0</module.gwtVersion>
 		<module.draftCompile>true</module.draftCompile>
 		<module.importedPackages>
-			org.junit
+			org.junit,
+			*
 		</module.importedPackages>
 		<module.exportedPackages>!com.appjangle.opsunit.internal*,
 			!com.appjangle.opsunit.jre.internal*,
@@ -41,7 +42,7 @@
 		</dependency>
 
 
-<dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
@@ -55,7 +56,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		
+
 
 
 	</dependencies>
