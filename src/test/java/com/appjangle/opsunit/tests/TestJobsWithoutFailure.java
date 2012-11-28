@@ -46,7 +46,17 @@ public class TestJobsWithoutFailure {
 
 			@Override
 			public List<Response> getResponses() {
-				return new ArrayList<Response>(0);
+				final ArrayList<Response> responses = new ArrayList<Response>(1);
+				responses.add(new Response() {
+
+					@Override
+					public void run(final Callback callback) {
+						callback.onFailure(new Exception(
+								"Response should not be triggered in this test case."));
+					}
+
+				});
+				return responses;
 			}
 
 			@Override
@@ -74,7 +84,7 @@ public class TestJobsWithoutFailure {
 
 		manager.start();
 
-		Thread.sleep(300);
+		Thread.sleep(1000);
 
 		Assert.assertTrue(testsDone.size() > 3);
 	}

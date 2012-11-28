@@ -34,8 +34,7 @@ public class JUnitJobExecutor implements JobExecutor {
 		for (final Class<?> test : job.getTests()) {
 			listener.onStartTest(job, test);
 
-			final Result result = JUnitCore.runClasses((Class<?>[]) job
-					.getTests().toArray());
+			final Result result = JUnitCore.runClasses(test);
 
 			if (result.getFailureCount() > 0) {
 				listener.onTestFailed(job, test, result.getFailures().get(0)
