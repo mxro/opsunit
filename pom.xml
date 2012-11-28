@@ -19,11 +19,10 @@
 		<module.gwtVersion>2.2.0</module.gwtVersion>
 		<module.draftCompile>true</module.draftCompile>
 		<module.importedPackages>
-			org.junit,
-			!*
+			org.junit
 		</module.importedPackages>
 		<module.exportedPackages>
-		</module.exportedPackages>
+		</module.exportedPackages>!com.appjangle.opsunit.internal*, com.appjangle.opsunit*
 		<module.serviceDefinitions>
 		</module.serviceDefinitions>
 	</properties>
