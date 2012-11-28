@@ -18,4 +18,15 @@ public interface JobListener {
 	 */
 	public void onUnexpectedFailure(Job j, Throwable t);
 
+	/**
+	 * Called right before a test is started.
+	 * 
+	 * @param j
+	 *            The job the test is embedded in
+	 * @param test
+	 */
+	public void onStartTest(Job j, Class<?> test);
+
+	public void onTestFailed(Job j, Class<?> test, Throwable t);
+
 }
