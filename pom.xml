@@ -21,8 +21,8 @@
 		<module.importedPackages>
 			org.junit
 		</module.importedPackages>
-		<module.exportedPackages>
-		</module.exportedPackages>!com.appjangle.opsunit.internal*, com.appjangle.opsunit*
+		<module.exportedPackages>!com.appjangle.opsunit.internal*, com.appjangle.opsunit*
+		</module.exportedPackages>
 		<module.serviceDefinitions>
 		</module.serviceDefinitions>
 	</properties>
