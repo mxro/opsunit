@@ -7,11 +7,12 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 
 import com.appjangle.opsunit.Job;
+import com.appjangle.opsunit.JobExecutor;
 import com.appjangle.opsunit.JobListener;
 import com.appjangle.opsunit.Response;
 import com.appjangle.opsunit.Response.Callback;
 
-public class JUnitJobExecutor implements Runnable {
+public class JUnitJobExecutor implements JobExecutor {
 
 	private final Job job;
 	private final JobListener listener;

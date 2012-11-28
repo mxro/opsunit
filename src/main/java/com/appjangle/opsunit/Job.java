@@ -18,7 +18,7 @@ public interface Job {
 	public int getFrequency();
 
 	/**
-	 * An arbitray name for this job.
+	 * An arbitrary name for this job.
 	 * 
 	 * @return
 	 */
