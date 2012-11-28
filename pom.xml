@@ -30,6 +30,14 @@
 	<!-- Dependent Modules -->
 	<dependencies>
 
+		
+		<dependency>
+			<groupId>one.utils</groupId>
+			<artifactId>oneUtils</artifactId>
+			<version>[0.0.1,)</version>
+		</dependency>
+		
+
 		<!-- only for gwt maven plugin!!! -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
