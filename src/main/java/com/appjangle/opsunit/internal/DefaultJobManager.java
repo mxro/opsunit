@@ -8,6 +8,7 @@ import one.utils.jre.concurrent.JreConcurrency;
 import one.utils.server.ShutdownCallback;
 
 import com.appjangle.opsunit.Job;
+import com.appjangle.opsunit.JobExecutorFactory;
 import com.appjangle.opsunit.JobListener;
 import com.appjangle.opsunit.JobManager;
 
@@ -15,7 +16,9 @@ public class DefaultJobManager implements JobManager {
 
 	private final List<Job> jobs;
 	private final JreConcurrency concurrency;
-	private final JobListener listner;
+	private final JobExecutorFactory executorFactory;
+	private final JobListener listener;
+
 	private final List<OneTimer> timers;
 
 	private volatile boolean started = false;
@@ -31,7 +34,8 @@ public class DefaultJobManager implements JobManager {
 		for (final Job job : jobs) {
 
 			final OneTimer jobTimer = concurrency.newTimer().scheduleRepeating(
-					0, job.getFrequency(), new JUnitJobExecutor(job, listner));
+					0, job.getFrequency(),
+					executorFactory.createExecutor(job, listener));
 			this.timers.add(jobTimer);
 		}
 
@@ -60,11 +64,13 @@ public class DefaultJobManager implements JobManager {
 	}
 
 	public DefaultJobManager(final List<Job> jobs,
-			final JreConcurrency concurrency, final JobListener listener) {
+			final JreConcurrency concurrency,
+			final JobExecutorFactory executorFactory, final JobListener listener) {
 		super();
 		this.jobs = jobs;
 		this.concurrency = concurrency;
-		this.listner = listener;
+		this.listener = listener;
+		this.executorFactory = executorFactory;
 		this.timers = new LinkedList<OneTimer>();
 	}
 

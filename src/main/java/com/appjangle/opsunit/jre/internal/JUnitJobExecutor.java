@@ -1,4 +1,4 @@
-package com.appjangle.opsunit.internal;
+package com.appjangle.opsunit.jre.internal;
 
 import com.appjangle.opsunit.Job;
 import com.appjangle.opsunit.JobListener;
