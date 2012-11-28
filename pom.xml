@@ -4,24 +4,27 @@
 	<groupId>com.appjangle.opsunit</groupId>
 	<artifactId>opsunit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<description>Framework to utilize JUnit tests to support operations.</description>
+	<description>Framework to utilize JUnit tests to support operations.
+	</description>
 
 	<properties>
 		<!-- one.download https://u1.linnk.it/qc8sbw/usr/apps/textsync/docs/maven-local-deployment-dirs -->
-<!-- MAVEN-LOCAL-DEPLOYMENT -->
+		<!-- MAVEN-LOCAL-DEPLOYMENT -->
 		<!-- path for home: C:\Users\Max\Dropbox\Public\onedb\mvn-releases -->
 		<jarDest>C:\Users\mroh004\Dropbox\Public\onedb\mvn-releases</jarDest>
 		<!-- path for home: /C:\Users\Max\Dropbox\Public\onedb\mvn-snapshots -->
 		<jarSnap>C:\Users\mroh004\Dropbox\Public\onedb\mvn-snapshots</jarSnap>
 		<!-- END -->
-<!-- one.end -->
-		
+		<!-- one.end -->
+
 		<module.gwtVersion>2.2.0</module.gwtVersion>
 		<module.draftCompile>true</module.draftCompile>
 		<module.importedPackages>
 			org.junit
 		</module.importedPackages>
-		<module.exportedPackages>!com.appjangle.opsunit.internal*, com.appjangle.opsunit*
+		<module.exportedPackages>!com.appjangle.opsunit.internal*,
+			!com.appjangle.opsunit.jre.internal*,
+			com.appjangle.opsunit*
 		</module.exportedPackages>
 		<module.serviceDefinitions>
 		</module.serviceDefinitions>
@@ -30,13 +33,13 @@
 	<!-- Dependent Modules -->
 	<dependencies>
 
-		
+
 		<dependency>
 			<groupId>one.utils</groupId>
 			<artifactId>oneUtils</artifactId>
 			<version>[0.0.1,)</version>
 		</dependency>
-		
+
 
 		<!-- only for gwt maven plugin!!! -->
 		<dependency>
@@ -252,7 +255,7 @@
 	</build>
 
 	<!-- one.download https://u1.linnk.it/qc8sbw/usr/apps/textsync/docs/maven-open-distribution-management -->
-<distributionManagement>
+	<distributionManagement>
 		<repository>
 			<id>dropbox-releases</id>
 			<name>Releases to dropbox</name>
@@ -265,6 +268,6 @@
 			<url>file://${jarSnap}</url>
 		</snapshotRepository>
 	</distributionManagement>
-<!-- one.end -->
+	<!-- one.end -->
 
 </project>

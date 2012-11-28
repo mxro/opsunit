@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Copyright 2012 Max Erik Rohde http://www.mxro.de
-  
--->
+<!-- Copyright 2012 Max Erik Rohde http://www.mxro.de -->
 <module rename-to='opsunit'>
-  <!-- Inherit the core Web Toolkit stuff.                        -->
-  <inherits name='com.google.gwt.user.User'/>
-	
-  <!-- Other module inherits                                      -->
-<!-- <inherits name='com.google.common.Guava'></inherits>-->
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
 
-  <!-- Specify the app entry point class.    -->                    
-  <entry-point class='com.appjangle.opsunit.internal.DummyEntryPoint'/> 
+	<inherits name='one.utils.OneUtils' />
 
-  <!-- Specify the paths for translatable code                    -->
-  <source path=''>
-  <exclude name="**/jre/**" />
-  </source>
-	
-	
+	<!-- Other module inherits -->
+	<!-- <inherits name='com.google.common.Guava'></inherits> -->
+
+	<!-- Specify the app entry point class. -->
+	<entry-point class='com.appjangle.opsunit.internal.DummyEntryPoint' />
+
+	<!-- Specify the paths for translatable code -->
+	<source path=''>
+		<exclude name="**/jre/**" />
+	</source>
+
+
 </module>
