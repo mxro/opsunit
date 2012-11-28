@@ -6,6 +6,14 @@ package com.appjangle.opsunit;
  * @author Max
  * 
  */
-public interface Response extends Runnable {
+public interface Response {
+
+	public static interface Callback {
+		public void onSuccess();
+
+		public void onFailure(Throwable t);
+	}
+
+	public void run(Callback callback);
 
 }

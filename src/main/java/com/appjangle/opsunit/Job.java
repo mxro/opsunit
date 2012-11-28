@@ -18,6 +18,13 @@ public interface Job {
 	public int getFrequency();
 
 	/**
+	 * An arbitray name for this job.
+	 * 
+	 * @return
+	 */
+	public String getName();
+
+	/**
 	 * Unit tests to be performed for this job.
 	 * 
 	 * @return
